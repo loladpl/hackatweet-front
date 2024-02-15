@@ -1,22 +1,98 @@
 .main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 4rem 0;
-  }
+  /* height: 100vh;
+  width: 100vw; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
   
-  .title {
-    line-height: 1.15;
-    font-size: 4rem;
-  }
+}
+.modal{
+  width: 30vw;
+  height: 30vh;
+position: absolute;
+left: 30vw;
+background-color: red;
+}
+
+.left{
+  background-image: url('../public/tweetbackground.png');
+  width: 54vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right{
+  background-color: #0B1623;
+  display: flex;
+  flex-direction:column;
+  color: whitesmoke;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 3vw;
+ 
+}
+
+.signin{
+  width: 15vw;
+  height: 4vh;
+  opacity:1;
+  display: block;
+  border: none;
+  outline: none;
+  /* padding: 13px 18px; */
+  /* margin: 20vh 0 0 0; */
+  border-radius:60px;
+  font-size: 0,8rem;
+  background: linear-gradient(144deg, #6b6ce1, #1f95f5 50%, #0d4a7b );
+  color: whitesmoke;
+}
+
+.signin:hover{
+  border: solid 1px #ffffff;
   
-  .title a {
-    color: #0070f3;
-    text-decoration: none;
-  }
-  
-  .title a:hover, .title a:focus, .title a:active {
-    text-decoration: underline;
-  }
+}
+
+.signup{
+  width: 15vw;
+  width: 15vw;
+  height: 4vh;
+  opacity:1;
+  display: block;
+  border: none;
+  outline: none;
+  /* padding: 13px 18px; */
+  /* margin: 20vh 0 0 0; */
+  border-radius:60px;
+  font-size: 0,8rem;
+  /* background: linear-gradient(144deg, #6b6ce1, #1f95f5 50%, #0d4a7b ); */
+  color: whitesmoke;
+  background-color: #0B1623;
+  border: solid 0.5px #082540
+}
+.signup:hover{
+  border: solid 0.3px #0d4a7b;
+  background-color: #0f9afb;
+  transition: background-color 0.5s;
+}
+
+.title {
+  line-height: 1.15;
+  font-size: 4rem;
+
+}
+
+.title a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.title a:hover, .title a:focus, .title a:active {
+  text-decoration: underline;
+}
