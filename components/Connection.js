@@ -31,17 +31,17 @@ function Connection() {
   const handleSubmitSignIn = (e) => {
     e.preventDefault();
     setIsSubmitted(true);
-    // Faites ce que vous devez faire avec les données de connexion
+
   };
 
   const handleSubmitSignUp = (e) => {
     e.preventDefault();
     setIsSubmitted(true);
-    // Faites ce que vous devez faire avec les données d'inscription
+   
   };
 
   if (isSubmitted) {
-    return <></>; // Ou peut-être rediriger ou afficher quelque chose de différent
+    return <></>; 
   }
 
   return (
