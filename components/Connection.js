@@ -2,6 +2,11 @@ import styles from '../styles/Connection.module.css';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { useRouter } from 'next/router'
+import { useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { login, logout } from '../reducers/users';
+import Link from 'next/link';
+
 
 function Connection() {
   const [isOpenSignIn, setIsOpenSignIn] = useState(false);
@@ -11,6 +16,8 @@ function Connection() {
     lastName: '',
     password: ''
   });
+
+
   const [formDataSignUp, setFormDataSignUp] = useState({ 
     username: '',
     password: ''
@@ -18,30 +25,117 @@ function Connection() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const router = useRouter();
 
-  const handleInputChangeSignIn = (e) => {
-    const { name, value } = e.target;
-    setFormDataSignIn({ ...formDataSignIn, [name]: value });
-  };
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.value);
 
-  const handleInputChangeSignUp = (e) => {
-    const { name, value } = e.target;
-    setFormDataSignUp({ ...formDataSignUp, [name]: value });
-  };
+  const [date, setDate] = useState('2050-11-22T23:59:59');
+ 
 
-  const handleSubmitSignIn = (e) => {
-    e.preventDefault();
-    setIsSubmitted(true);
+  const [signUpUsername, setSignUpUsername] = useState('');
+  const [signUpFirstname, setSignUpFirstname] = useState('')
+  const [signUpPassword, setSignUpPassword] = useState('');
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
-  };
+  const [signInUsername, setSignInUsername] = useState('');
+  const [signInPassword, setSignInPassword] = useState('');
 
-  const handleSubmitSignUp = (e) => {
-    e.preventDefault();
-    setIsSubmitted(true);
-   
-  };
+  const handleRegister = () => {
+    fetch('http://localhost:3000/users/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: signUpUsername, firstname: signUpFirstname, password: signUpPassword }),
+    }).then(response => response.json())
+        .then(data => {
+            if (data.result===true) {
+                dispatch(login({ username: signUpUsername, token: data.token }));
+                setSignUpUsername('');
+                setSignUpPassword('');
+                setSignUpFirstname('');
+                setIsModalVisible(false);
+                router.push('/home');
+            } else {
+                console.error('Echec t nul')
+            }
+        });
+};
+
+const handleConnection = () => {
+
+    fetch('http://localhost:3000/users/signin', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: signInUsername, password: signInPassword }),
+    }).then(response => response.json())
+        .then(data => {
+            if (data.result===true) {
+                dispatch(login({ username: signInUsername, token: data.token }));
+                setSignInUsername('');
+                setSignInPassword('');
+                setIsModalVisible(false);
+                router.push('/home');
+            } else {
+                console.error('Echec t nul')
+            }
+        });
+};
+
+const showModal = () => {
+    setIsModalVisible(!isModalVisible);
+}
+
 
   if (isSubmitted) {
     return <></>; 
+  }
+
+
+  let modalContent;
+  if (!user.isConnected) {
+      modalContent = (
+          <div className={styles.registerContainer}>
+              <div className={styles.registerSection}>
+                  <p>Sign-up</p>
+                  <input type="text" placeholder="Username" id="signUpUsername" onChange={(e) => setSignUpUsername(e.target.value)} value={signUpUsername} />
+                  <input type="password" placeholder="Password" id="signUpPassword" onChange={(e) => setSignUpPassword(e.target.value)} value={signUpPassword} />
+                  <input type="text" placeholder="Firstname" id="signUpFirstname" onChange={(e) => setSignUpFirstname(e.target.value)} value={signUpFirstname} />
+                  <Link href='/Home'><button id="register" onClick={() => { showModal(); handleRegister(); }}>Sign Up</button></Link>
+              </div>
+              <div className={styles.registerSection}>
+                  <p>Sign-in</p>
+                  <input type="text" placeholder="Username" id="signInUsername" onChange={(e) => setSignInUsername(e.target.value)} value={signInUsername} />
+                  <input type="password" placeholder="Password" id="signInPassword" onChange={(e) => setSignInPassword(e.target.value)} value={signInPassword} />
+                  <button id="register" onClick={() => { showModal(); handleConnection(); }}>Sign In</button>
+              </div>
+          </div>
+      );
+  }
+
+
+
+
+
+
+  let userSection;
+  if (user.token) {
+    //   userSection = (
+    //     //   <div className={styles.logoutSection}>
+              
+    //     //       <button onClick={() => handleLogout()}>Logout</button>
+          
+    //     //   </div>
+    //   );
+  } else {
+      if (isModalVisible) {
+          userSection =
+              <div className={styles.headerIcons}>
+          
+              </div>
+      } else {
+          userSection =
+              <div className={styles.headerIcons}>
+          
+              </div>
+      }
   }
 
   return (
@@ -49,7 +143,7 @@ function Connection() {
       <main className={styles.main}>
         <div className={styles.left}>
           <Image
-            src="/tweet.png"
+            src="/twitterlogocopie.png"
             alt="logo tweet"
             width={300}
             height={300}
@@ -60,27 +154,17 @@ function Connection() {
             See what's happening
           </h1>
           <h3>Join Hackatweet today.</h3>
+          {userSection}
           <button className={styles.signin} onClick={() => setIsOpenSignIn(true)}>Sign in</button>
           {isOpenSignIn && (
             <div className={styles.modal}>
               <div className="modal-content">
                 <span className="close" onClick={() => setIsOpenSignIn(false)}>&times;</span>
                 <h2>Sign in</h2>
-                <form onSubmit={handleSubmitSignIn}>
-                  <label>
-                    First Name:
-                    <input type="text" name="firstName" value={formDataSignIn.firstName} onChange={handleInputChangeSignIn} />
-                  </label>
-                  <label>
-                    Username:
-                    <input type="text" name="lastName" value={formDataSignIn.lastName} onChange={handleInputChangeSignIn} />
-                  </label>
-                  <label>
-                    Password:
-                    <input type="password" name="password" value={formDataSignIn.password} onChange={handleInputChangeSignIn} />
-                  </label>
-                  <button type="submit">Submit</button>
-                </form>
+                <input type="text" placeholder="Username" id="signUpUsername" onChange={(e) => setSignUpUsername(e.target.value)} value={signUpUsername} />
+					<input type="password" placeholder="Password" id="signUpPassword" onChange={(e) => setSignUpPassword(e.target.value)} value={signUpPassword} />
+					<input type="text" placeholder="Firstname" id="signUpFirstname" onChange={(e) => setSignUpFirstname(e.target.value)} value={signUpFirstname} />
+                    <button id="register" onClick={() => handleRegister()}>Sign Up</button>
               </div>
             </div>
           )}
@@ -90,17 +174,9 @@ function Connection() {
               <div className="modal-content">
                 <span className="close" onClick={() => setIsOpenSignUp(false)}>&times;</span>
                 <h2>Sign up</h2>
-                <form onSubmit={handleSubmitSignUp}>
-                  <label>
-                    Username:
-                    <input type="text" name="username" value={formDataSignUp.username} onChange={handleInputChangeSignUp} />
-                  </label>
-                  <label>
-                    Password:
-                    <input type="password" name="password" value={formDataSignUp.password} onChange={handleInputChangeSignUp} />
-                  </label>
-                  <button type="submit">Submit</button>
-                </form>
+                <input type="text" placeholder="Username" id="signInUsername" onChange={(e) => setSignInUsername(e.target.value)} value={signInUsername} />
+					<input type="password" placeholder="Password" id="signInPassword" onChange={(e) => setSignInPassword(e.target.value)} value={signInPassword} />
+					<button id="connection" onClick={() => handleConnection()}>Sign In</button>
               </div>
             </div>
           )}
