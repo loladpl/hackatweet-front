@@ -59,6 +59,7 @@ function Header() {
 					dispatch(login({ username: signInUsername, token: data.token }));
 					setSignInUsername('');
 					setSignInPassword('');
+					
 					setIsModalVisible(false)
 				}
 			});
