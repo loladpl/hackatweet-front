@@ -39,6 +39,8 @@ function Connection() {
   const [signInUsername, setSignInUsername] = useState('');
   const [signInPassword, setSignInPassword] = useState('');
 
+  
+
   const handleRegister = () => {
     fetch('http://localhost:3000/users/signup', {
         method: 'POST',
@@ -158,7 +160,7 @@ const showModal = () => {
             <div className={styles.join}>
           <h3>Join Hackatweet today.</h3>
           {userSection}
-          <button className={styles.signin} onClick={() => setIsOpenSignIn(true)}>Sign Up</button>
+          <button className={styles.signin}onClick={() => router.push('/signup')}>Sign Up</button>
           {isOpenSignIn && (
             <div className={styles.modal}>
               <div className={styles.modalcontent}>
