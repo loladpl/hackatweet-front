@@ -143,32 +143,40 @@ const showModal = () => {
       <main className={styles.main}>
         <div className={styles.left}>
           <Image
-            src="/twitterlogocopie.png"
+            src="/poulpicon.png"
             alt="logo tweet"
-            width={300}
-            height={300}
+            width={250}
+            height={250}
           />
-        </div>
+        </div> 
+
         <div className={styles.right}>
           <h1 className={styles.title}>
             See what's happening
           </h1>
+          <div className={styles.pouet}>
+            <div className={styles.join}>
           <h3>Join Hackatweet today.</h3>
           {userSection}
-          <button className={styles.signin} onClick={() => setIsOpenSignIn(true)}>Sign in</button>
+          <button className={styles.signin} onClick={() => setIsOpenSignIn(true)}>Sign Up</button>
           {isOpenSignIn && (
             <div className={styles.modal}>
-              <div className="modal-content">
+              <div className={styles.modalcontent}>
                 <span className="close" onClick={() => setIsOpenSignIn(false)}>&times;</span>
-                <h2>Sign in</h2>
+                <div className={styles.signupformulaire}>
+                <h2>Sign Up</h2>
                 <input type="text" placeholder="Username" id="signUpUsername" onChange={(e) => setSignUpUsername(e.target.value)} value={signUpUsername} />
 					<input type="password" placeholder="Password" id="signUpPassword" onChange={(e) => setSignUpPassword(e.target.value)} value={signUpPassword} />
 					<input type="text" placeholder="Firstname" id="signUpFirstname" onChange={(e) => setSignUpFirstname(e.target.value)} value={signUpFirstname} />
                     <button id="register" onClick={() => handleRegister()}>Sign Up</button>
               </div>
+              </div>
             </div>
           )}
-          <button className={styles.signup} onClick={() => setIsOpenSignUp(true)}>Sign Up</button>
+          </div>
+          <div className={styles.connect}>
+          <p>Already member?</p>
+          <button className={styles.signup} onClick={() => setIsOpenSignUp(true)}>Sign in</button>
           {isOpenSignUp && (
             <div className={styles.modal}>
               <div className="modal-content">
@@ -180,6 +188,8 @@ const showModal = () => {
               </div>
             </div>
           )}
+          </div>
+          </div>
         </div>
       </main>
     </div>
