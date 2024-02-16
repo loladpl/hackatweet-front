@@ -14,15 +14,24 @@ function Home() {
             <Image
               src="/poulpicon.png"
               alt="logo tweet"
-              width={250}
-              height={250}
+              width={120}
+              height={120}
             />
             </div>
             <div className={styles.profile}>
-              <p>profilepic</p>
+
+              <div className={styles.userprofile}>
+              <Image className={styles.anya}
+              src="/zoromiaw.jpeg"
+              alt="logo tweet"
+              width={90}
+              height={90}
+            />
               <h5>Nom</h5>
               <p>@username</p>
-              <button>Logout</button>
+              </div>
+              <button className={styles.logoutbtn}>Logout</button>
+            
             </div>
 
         </div>

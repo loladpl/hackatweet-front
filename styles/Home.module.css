@@ -1,3 +1,24 @@
+/* plan: 
+main
+ left
+    icon
+    profile
+       profil
+       logout
+
+  mid
+     headmid
+        title
+        mytweet
+     tweets
+        onetweet
+
+  right
+      trends
+      counters
+         counter
+  */
+
 .main {
   margin: 0;
   padding: 0;
@@ -5,24 +26,92 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(13, 1fr);
-  
+  background-image: url('../public/beach.jpeg');
+  background-size:cover;
+  background-position: center; 
 }
+
 
 .left {
   /* background-color: rgb(222, 135, 209); */
   grid-column-start: 1; 
   grid-column-end: 4; 
   border-right: solid 0.5px #333333 ;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: #0B16235F; */
+  /* background-image: url('../public/bgleft.jpg');
+  background-size:cover; */
+
+
 }
 
+/* .icon{
+  height:30px ;
+} */
+
+.profile{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  /* border-top: solid 1px #0B1623; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0B16235F;
+  color:#EFEFEF;
+}
+
+.userprofile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.anya{
+  border-radius: 60px;
+  margin-bottom: 30px;
+}
+
+.logoutbtn{
+    width: 15vw;
+    height: 3.5vh;
+    opacity:1;
+    display: block;
+    border: none;
+    outline: none;
+    /* padding: 13px 18px; */
+    /* margin: 20vh 0 0 0; */
+    border-radius:60px;
+    font-size: 0,8rem;
+    color: #EFEFEF;
+    background-color: #fe9ea9;
+    /* border: solid 0.5px #00969b */
+  }
+  
+  .logoutbtn:hover{
+    /* border: solid 0.3px #EFEFEF; */
+    background-color: #b0ece4;
+    transition: background-color 0.5s;
+    color: #0B1623;
+    transition: color 0.5s;
+  }
+
 .mid {
-  background-color: rgb(223, 255, 127);
+  background-color: #0B16235F;
   grid-column-start: 4; 
   grid-column-end: 10; 
+  /* border-right: solid 1px #0B1623; */
+  color: whitesmoke
+  /* background-color: #0B16235F; */
 }
 
 .right {
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
   grid-column-start: 10; 
   grid-column-end: 14; 
+  /* background-color: #0B16235F; */
 }

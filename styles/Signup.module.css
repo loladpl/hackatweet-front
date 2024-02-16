@@ -20,11 +20,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #e2ffff;
-  border-radius: 17px;
+  /* background-color: #e2ffff; */
+  background-color: red;
+  /* border-radius: 17px;
   padding: 12px;
   display: flex;
-  flex-direction: row;
+  flex-direction: row; */
   color: #0B1623;
   }
   
