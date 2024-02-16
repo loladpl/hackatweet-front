@@ -1,15 +1,28 @@
-
-
-.title {
-  line-height: 1.15;
-  font-size: 4rem;
+.main {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
+.left {
+  /* background-color: rgb(222, 135, 209); */
+  grid-column-start: 1; 
+  grid-column-end: 4; 
+  border-right: solid 0.5px #333333 ;
 }
 
-.title a:hover, .title a:focus, .title a:active {
-  text-decoration: underline;
+.mid {
+  background-color: rgb(223, 255, 127);
+  grid-column-start: 4; 
+  grid-column-end: 10; 
+}
+
+.right {
+  background-color: cadetblue;
+  grid-column-start: 10; 
+  grid-column-end: 14; 
 }
