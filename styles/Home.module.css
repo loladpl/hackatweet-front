@@ -36,7 +36,7 @@ main
   /* background-color: rgb(222, 135, 209); */
   grid-column-start: 1; 
   grid-column-end: 4; 
-  border-right: solid 0.5px #333333 ;
+  /* border-right: solid 0.5px #333333 ; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -55,7 +55,7 @@ main
 .profile{
   padding-top: 15px;
   padding-bottom: 15px;
-  /* border-top: solid 1px #0B1623; */
+  border-right: solid 1px #EFEFEF33;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -73,9 +73,7 @@ main
 }
 .anya{
   border-radius: 60px;
-  margin-bottom: 30px;
 }
-
 .logoutbtn{
     width: 15vw;
     height: 3.5vh;
@@ -87,19 +85,22 @@ main
     /* margin: 20vh 0 0 0; */
     border-radius:60px;
     font-size: 0,8rem;
-    color: #EFEFEF;
-    background-color: #fe9ea9;
+    color: #0B1623AA;
+    background-color: #b0ece4;
     /* border: solid 0.5px #00969b */
   }
   
   .logoutbtn:hover{
     /* border: solid 0.3px #EFEFEF; */
-    background-color: #b0ece4;
+    background-color: #fe9ea9;
     transition: background-color 0.5s;
-    color: #0B1623;
+    color: #EFEFEF;
     transition: color 0.5s;
   }
 
+.name{
+  padding-top: 10px;
+}
 .mid {
   background-color: #0B16235F;
   grid-column-start: 4; 

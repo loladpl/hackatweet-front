@@ -141,7 +141,7 @@
     padding-top: 1.5vh;
   }
   
-  .signupbtn{
+   .signupbtn{
     width: 25vw;
     height: 5.5vh;
     opacity:1;
@@ -155,7 +155,7 @@
     color: #EFEFEF;
     background-color: #fe9ea9;
     /* border: solid 0.5px #00969b */
-  }
+  } 
   
   .signupbtn:hover{
     /* border: solid 0.3px #EFEFEF; */
@@ -163,9 +163,7 @@
     transition: background-color 0.5s;
     color: #0B1623;
     transition: color 0.5s;
-
-  
-  }
+  } 
   
   .signup{
     width: 15vw;
