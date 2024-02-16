@@ -1,0 +1,200 @@
+.main {
+    /* height: 100vh;
+    width: 100vw; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-image: url('../public/seabgrev.jpg');
+    background-size:cover;
+    
+  }
+ 
+
+
+  .modal{
+    width: 350px;
+    height: 350px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #e2ffff;
+  border-radius: 17px;
+  padding: 12px;
+  display: flex;
+  flex-direction: row;
+  color: #0B1623;
+  }
+  
+  .inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+/* .coucou{
+    position: absolute;
+    left: 20px;
+} */
+
+  .firstname{
+    margin-bottom: 6vh;
+    height: 35px;
+    width: 25vw;
+    padding-left: 1vw;
+    border-radius: 8px;
+    border: none;
+    color: #0B1623DD
+  }
+.firstname:hover{
+    border: solid 1px #0B1623BB;
+}
+.firstname:focus{
+    background-color: #b0ece4;
+    border: solid 1px #0B1623BB;
+    outline:none;
+    box-shadow: #0B1623BB;
+}
+.firstname:not(:focus){
+    background-color: none;
+}
+  
+ .username{
+    margin-bottom: 6vh;
+    height: 35px;
+    width: 25vw;
+    padding-left: 1vw;
+    border-radius: 8px;
+    border: none;
+    color: #0B1623DD
+
+ }
+ .username:hover{
+    border: solid 1px #0B1623BB;
+}
+.username:focus{
+    background-color: #b0ece4;
+    border: solid 1px #0B1623BB;
+    outline:none;
+    box-shadow: #0B1623BB;
+}
+.username:not(:focus){
+    background-color: none;
+}
+
+ .password{
+    margin-bottom: 10vh;
+    height: 35px;
+    width: 25vw;
+    padding-left: 1vw;
+    border-radius: 8px;
+    border: none;
+    color: #0B1623DD
+
+ }
+ .password:hover{
+    border: solid 1px #0B1623BB;
+}
+.password:focus{
+    background-color: #b0ece4;
+    border: solid 1px #0B1623BB;
+    outline:none;
+    box-shadow: #0B1623BB;
+}
+.password:not(:focus){
+    background-color: none;
+}
+
+  .left{
+    width: 54vw;
+    height: 100vh;
+    padding-bottom: 15vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    
+  }
+  
+  .right{
+    background-color: #0B16235F;
+    display: flex;
+    flex-direction:column;
+    color: whitesmoke;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    padding: 3vw;
+    right: 0;
+    width: 50%;
+  }
+  
+  .join{
+    padding-bottom: 1.5vh;
+  }
+  
+  .connect{
+    padding-top: 1.5vh;
+  }
+  
+  .signupbtn{
+    width: 25vw;
+    height: 5.5vh;
+    opacity:1;
+    display: block;
+    border: none;
+    outline: none;
+    /* padding: 13px 18px; */
+    /* margin: 20vh 0 0 0; */
+    border-radius:60px;
+    font-size: 0,8rem;
+    color: #EFEFEF;
+    background-color: #fe9ea9;
+    /* border: solid 0.5px #00969b */
+  }
+  
+  .signupbtn:hover{
+    /* border: solid 0.3px #EFEFEF; */
+    background-color: #b0ece4;
+    transition: background-color 0.5s;
+    color: #0B1623;
+    transition: color 0.5s;
+
+  
+  }
+  
+  .signup{
+    width: 15vw;
+    width: 15vw;
+    height: 4vh;
+    opacity:1;
+    display: block;
+    border: none;
+    outline: none;
+    /* padding: 13px 18px; */
+    /* margin: 20vh 0 0 0; */
+    border-radius:60px;
+    font-size: 0,8rem;
+    color: #0B1623CF;
+    background-color: #b0ece4;
+    margin-top: 1.5vh;
+  
+    /* border: solid 0.5px #00969b */
+  }
+  .signup:hover{
+    border: solid 0.3px #EFEFEF;
+    background-color: #00afb0;
+    transition: background-color 0.3s;
+    color: #EFEFEF;
+    
+  }
+  
+  .title {
+    line-height: 1.15;
+    font-size: 4rem;
+  
+  }
+  
